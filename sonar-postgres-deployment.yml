@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sonar-postgres
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: sonar-postgres
+      labels:
+        name: sonar-postgres
+    spec:
+      containers:
+        - image: postgres:9.5.3
+          name: sonar-postgres
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-pwd
+                  key: password
+            - name: POSTGRES_USER
+              value: sonar
+            - name: PGDATA
+              value: /usr/local/var/postgres/data
+          ports:
+            - containerPort: 5432
+              name: postgresport
+          volumeMounts:
+            # This name must match the volumes.name below.
+            - name: sonar-postgres-disk
+              mountPath: /usr/local/var/postgres
+#              mountPath: /var/lib/postgresql/data/pgdata
+      volumes: 
+          - name: "sonar-postgres-disk"
+            awsElasticBlockStore:
+              volumeID: <volume id>
+              fsType: ext4
