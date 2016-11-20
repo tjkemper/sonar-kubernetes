@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "sonar"
+  namespace: "operations"
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - sonar.operations.taylorkemper.com
+    secretName: sonar-tls
+  rules:
+  - host: sonar.operations.taylorkemper.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: sonar
+          servicePort: 80

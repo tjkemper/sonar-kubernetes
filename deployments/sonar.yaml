@@ -8,12 +8,12 @@ spec:
     metadata:
       name: sonar
       labels:
-        name: sonar
+        app: sonar
     spec:
       containers:
         - image: sonarqube:6.0
           args:
-            - -Dsonar.web.context=/sonar
+            - -Dsonar.web.context=/
           name: sonar
           env:
             - name: SONARQUBE_JDBC_PASSWORD

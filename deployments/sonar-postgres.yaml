@@ -8,7 +8,7 @@ spec:
     metadata:
       name: sonar-postgres
       labels:
-        name: sonar-postgres
+        app: sonar-postgres
     spec:
       containers:
         - image: postgres:9.5.3
@@ -34,5 +34,5 @@ spec:
       volumes: 
           - name: "sonar-postgres-disk"
             awsElasticBlockStore:
-              volumeID: <volume id>
+              volumeID: vol-74e3b2a1
               fsType: ext4
