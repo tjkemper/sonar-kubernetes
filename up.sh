@@ -1,3 +1,6 @@
+# secret
+kubectl create secret generic postgres-pwd --from-file=./password --namespace operations
+
 # service
 kubectl apply -f services/sonar.yaml --namespace operations
 kubectl apply -f services/sonar-postgres.yaml --namespace operations

@@ -34,5 +34,5 @@ spec:
       volumes: 
           - name: "sonar-postgres-disk"
             awsElasticBlockStore:
-              volumeID: vol-74e3b2a1
+              volumeID: vol-0c0eaa4f898b7ed3c
               fsType: ext4
