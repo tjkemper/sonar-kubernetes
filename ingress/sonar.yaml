@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - sonar.operations.taylorkemper.com
+    - sonar.revatureops.com
     secretName: sonar-tls
   rules:
-  - host: sonar.operations.taylorkemper.com
+  - host: sonar.revatureops.com
     http:
       paths:
       - path: /
