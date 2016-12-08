@@ -1,3 +1,2 @@
 # sonar-kubernetes
-
-Configuration for running SonarQube in Kubernetes.
+Running SonarQube in Kubernetes
