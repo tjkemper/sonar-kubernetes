@@ -2,3 +2,5 @@ password
 /keyrings/live/pubring.gpg~
 /keyrings/live/pubring.kbx~
 /keyrings/live/secring.gpg
+/scripts/create-postgres.sh
+/secrets/db-info.yaml
