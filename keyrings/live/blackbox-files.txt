@@ -1,1 +1,2 @@
 scripts/create-postgres.sh
+secrets/db-info.yaml
