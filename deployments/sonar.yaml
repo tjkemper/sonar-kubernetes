@@ -19,10 +19,13 @@ spec:
             - name: SONARQUBE_JDBC_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres-pwd
+                  name: db-info
                   key: password
             - name: SONARQUBE_JDBC_URL
-              value: jdbc:postgresql://sonar-postgres:5432/sonar
+              valueFrom:
+                secretKeyRef:
+                  name: db-info
+                  key: url 
           ports:
             - containerPort: 9000
               name: sonar
